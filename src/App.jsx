@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import GroceryForm from './components/GroceryForm';
 import GroceryList from './components/GroceryList';
@@ -7,6 +7,23 @@ function App() {
   const [items, setItems] = useState([]);
   const [inputText, setInputText] = useState('');
   const [editId, setEditId] = useState(null);
+
+  // Load items from localStorage on initial render
+  useEffect(() => {
+    const savedItems = localStorage.getItem('groceryList');
+    if (savedItems) {
+      try {
+        setItems(JSON.parse(savedItems));
+      } catch (e) {
+        console.error('Error loading items:', e);
+      }
+    }
+  }, []);
+
+  // Save items to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('groceryList', JSON.stringify(items));
+  }, [items]);
 
   const generateId = () => {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
