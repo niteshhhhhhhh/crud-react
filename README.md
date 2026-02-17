@@ -14,7 +14,9 @@ GroceryItem.js - Represents each individual grocery item
 2. JSX (JavaScript XML)
 JSX allows writing HTML-like code directly in JavaScript. For example:
 
+```jsx 
 return <li className="grocery-item">{item.name}</li>;
+
 
 
 3. Props (Properties)
