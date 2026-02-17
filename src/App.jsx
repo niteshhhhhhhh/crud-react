@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import GroceryForm from './components/GroceryForm';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
           Grocery Bud 
           <img src={`${process.env.PUBLIC_URL}/images/icon.png`} alt="grocery icon" />
         </h2>
-        <p className="coming-soon">Grocery Bud App </p>
+        <GroceryForm />
       </div>
     </div>
   );
