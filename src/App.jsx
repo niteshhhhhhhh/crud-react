@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import GroceryForm from './components/GroceryForm';
+import GroceryList from './components/GroceryList';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -39,9 +40,7 @@ function App() {
           setInputText={setInputText}
           addItem={addItem}
         />
-        <div className="items-count">
-          {items.length} {items.length === 1 ? 'item' : 'items'} in list
-        </div>
+        <GroceryList items={items} />
       </div>
     </div>
   );
