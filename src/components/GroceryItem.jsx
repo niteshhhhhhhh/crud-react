@@ -1,7 +1,7 @@
 import React from 'react';
 import './GroceryItem.css';
 
-function GroceryItem({ item, toggleCompleted, deleteItem }) {
+function GroceryItem({ item, toggleCompleted, deleteItem, startEditing }) {
   const { id, name, completed } = item;
 
   return (
@@ -12,6 +12,17 @@ function GroceryItem({ item, toggleCompleted, deleteItem }) {
       <span className="item-text">{name}</span>
       
       <div className="item-buttons">
+        <span 
+          className="edit-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            startEditing(id, name);
+          }}
+          title="Edit item"
+        >
+          ✎
+        </span>
+        
         <span 
           className="delete-btn"
           onClick={(e) => {

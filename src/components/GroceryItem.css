@@ -3,6 +3,7 @@
   font-size: 18px;
   padding: 12px 8px 12px 20px;
   user-select: none;
+  cursor: pointer;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -21,6 +22,16 @@
   line-height: 20px;
 }
 
+.grocery-item.checked {
+  color: var(--text-light);
+  text-decoration: line-through;
+}
+
+.grocery-item.checked::before {
+  content: "✓";
+  color: var(--primary-green);
+}
+
 .item-text {
   flex: 1;
 }
@@ -30,7 +41,7 @@
   gap: 10px;
 }
 
-.delete-btn {
+.edit-btn, .delete-btn {
   cursor: pointer;
   font-size: 18px;
   width: 24px;
@@ -40,6 +51,18 @@
   justify-content: center;
   border-radius: 50%;
   transition: all 0.3s ease;
+}
+
+.edit-btn {
+  color: var(--edit-blue);
+}
+
+.edit-btn:hover {
+  background-color: #ebf5fb;
+  color: #2980b9;
+}
+
+.delete-btn {
   color: var(--delete-red);
 }
 
