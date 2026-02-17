@@ -1,11 +1,14 @@
 import React from 'react';
 import './GroceryItem.css';
 
-function GroceryItem({ item, deleteItem }) {
-  const { id, name } = item;
+function GroceryItem({ item, toggleCompleted, deleteItem }) {
+  const { id, name, completed } = item;
 
   return (
-    <li className="grocery-item">
+    <li 
+      className={`grocery-item ${completed ? 'checked' : ''}`}
+      onClick={() => toggleCompleted(id)}
+    >
       <span className="item-text">{name}</span>
       
       <div className="item-buttons">

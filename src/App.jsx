@@ -28,6 +28,12 @@ function App() {
     alert('Item Added Successfully!');
   };
 
+  const toggleCompleted = (id) => {
+    setItems(items.map(item => 
+      item.id === id ? { ...item, completed: !item.completed } : item
+    ));
+  };
+
   const deleteItem = (id) => {
     setItems(items.filter(item => item.id !== id));
     alert('Item Deleted Successfully!');
@@ -47,6 +53,7 @@ function App() {
         />
         <GroceryList 
           items={items}
+          toggleCompleted={toggleCompleted}
           deleteItem={deleteItem}
         />
       </div>
