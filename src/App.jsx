@@ -28,6 +28,11 @@ function App() {
     alert('Item Added Successfully!');
   };
 
+  const deleteItem = (id) => {
+    setItems(items.filter(item => item.id !== id));
+    alert('Item Deleted Successfully!');
+  };
+
   return (
     <div className="container">
       <div className="grocery-bud">
@@ -40,7 +45,10 @@ function App() {
           setInputText={setInputText}
           addItem={addItem}
         />
-        <GroceryList items={items} />
+        <GroceryList 
+          items={items}
+          deleteItem={deleteItem}
+        />
       </div>
     </div>
   );
