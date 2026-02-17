@@ -1,13 +1,18 @@
 import React from 'react';
 import './GroceryForm.css';
 
-function GroceryForm({ inputText, setInputText }) {
+function GroceryForm({ inputText, setInputText, addItem }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addItem(inputText);
+  };
+
   const handleChange = (e) => {
     setInputText(e.target.value);
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="row">
         <input
           type="text"
